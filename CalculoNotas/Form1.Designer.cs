@@ -35,6 +35,7 @@
             this.tsbSearchStudent = new System.Windows.Forms.ToolStripButton();
             this.tsbEditStudent = new System.Windows.Forms.ToolStripButton();
             this.tsbDeleteStudent = new System.Windows.Forms.ToolStripButton();
+            this.tsbReload = new System.Windows.Forms.ToolStripButton();
             this.tsbTrash = new System.Windows.Forms.ToolStripButton();
             this.tsbExit = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
             this.txtNote4 = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.tsbReload = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuiconos.SuspendLayout();
@@ -140,6 +140,20 @@
             this.tsbDeleteStudent.Text = "toolStripButton4";
             this.tsbDeleteStudent.ToolTipText = "Eliminar alumno";
             this.tsbDeleteStudent.Click += new System.EventHandler(this.tsbDeleteStudent_Click);
+            // 
+            // tsbReload
+            // 
+            this.tsbReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tsbReload.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbReload.Image = ((System.Drawing.Image)(resources.GetObject("tsbReload.Image")));
+            this.tsbReload.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbReload.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbReload.Margin = new System.Windows.Forms.Padding(0, 1, 35, 1);
+            this.tsbReload.Name = "tsbReload";
+            this.tsbReload.Size = new System.Drawing.Size(84, 84);
+            this.tsbReload.Text = "<";
+            this.tsbReload.ToolTipText = "Actualizar lista";
+            this.tsbReload.Click += new System.EventHandler(this.tsbReload_Click);
             // 
             // tsbTrash
             // 
@@ -306,20 +320,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // tsbReload
-            // 
-            this.tsbReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tsbReload.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbReload.Image = ((System.Drawing.Image)(resources.GetObject("tsbReload.Image")));
-            this.tsbReload.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbReload.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbReload.Margin = new System.Windows.Forms.Padding(0, 1, 35, 1);
-            this.tsbReload.Name = "tsbReload";
-            this.tsbReload.Size = new System.Drawing.Size(84, 84);
-            this.tsbReload.Text = "<";
-            this.tsbReload.ToolTipText = "Salir";
-            this.tsbReload.Click += new System.EventHandler(this.tsbReload_Click);
             // 
             // menuStrip1
             // 

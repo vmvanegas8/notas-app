@@ -21,6 +21,9 @@ namespace CalculoNotas
             InitializeComponent();
         }
 
+        Validation validation = new Validation();
+        Alumno alumno = new Alumno();
+
         public void deleteAlumno(Alumno alumno)
         {
             frmcalculonotas.listaAlumnosBorrados.Add(alumno);
@@ -57,21 +60,70 @@ namespace CalculoNotas
             return null;
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            Alumno alumno = obtenerAlumnoBorrado(int.Parse(txtCode.Text));
-            frmcalculonotas.listaAlumnosBorrados.Remove(alumno);
-            frmcalculonotas.listaAlumnos.Add(alumno);
 
-            frmcalculonotas frmcalculonotas1 = new frmcalculonotas();
+        private bool verifyTheCodeExists(int code) {
 
-            frmcalculonotas1.recuperarAlumno();
+            foreach(Alumno alumno in frmcalculonotas.listaAlumnos)
+            {
+                if(alumno.Codigo == code)
+                {
+                    return true;
+                }
+            }
 
-            dgvAlumnosBorrados.DataSource = null;
-            dgvAlumnosBorrados.DataSource = frmcalculonotas.listaAlumnosBorrados;
-            // saveAlumnosBorrados();
-            txtCode.Clear();
+            return false;
         }
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            recoverStudent();
+        }
+
+        private void recoverStudent()
+        {
+            errorProvider1.Clear();
+            if (validation.isNumber(txtCode, errorProvider1, "Debe ser un numero"))
+            {
+                alumno = obtenerAlumnoBorrado(int.Parse(txtCode.Text));
+
+                if (verifyTheCodeExists(alumno.Codigo) == true)
+                {
+                    MessageBox.Show("Este codigo ya existe asigna un nuevo codigo", "Codigo existente");
+                    label1.Text = "Nuevo codigo";
+                    tbsNuevoCodigo.Enabled = true;
+                    tbsRecuperarAlumno.Enabled = false;
+                }
+                else
+                {
+                    frmcalculonotas.listaAlumnosBorrados.Remove(alumno);
+                    frmcalculonotas.listaAlumnos.Add(alumno);
+
+                    frmcalculonotas frmcalculonotas1 = new frmcalculonotas();
+
+                    frmcalculonotas1.recuperarAlumno();
+
+                    dgvAlumnosBorrados.DataSource = null;
+                    dgvAlumnosBorrados.DataSource = frmcalculonotas.listaAlumnosBorrados;
+                    // saveAlumnosBorrados();
+                    txtCode.Clear();
+                }
+
+            }
+        }
+
+        private void tbsNuevoCodigo_Click(object sender, EventArgs e)
+        {
+            if (validation.isNumber(txtCode, errorProvider1, "Debe ser un numero"))
+            { 
+                alumno.Codigo = int.Parse(txtCode.Text);
+                label1.Text = "Buscar por codigo";
+                tbsNuevoCodigo.Enabled = false;
+                tbsRecuperarAlumno.Enabled = true;
+                txtCode.Clear();
+                dgvAlumnosBorrados.DataSource = null;
+                dgvAlumnosBorrados.DataSource = frmcalculonotas.listaAlumnosBorrados;
+                MessageBox.Show("El codigo se cambio correctamente, intenta recuperar de nuevo", "Codigo cambiado");
+            }
+        }
     }
 }
