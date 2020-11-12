@@ -12,7 +12,7 @@
     <NotaConcepto>Aprobado</NotaConcepto>
   </Alumno>
   <Alumno>
-    <Codigo>1</Codigo>
+    <Codigo>5</Codigo>
     <Nombre>dwadwa</Nombre>
     <Correo>dwadaw@dwad.com</Correo>
     <Nota1>4</Nota1>
@@ -23,18 +23,7 @@
     <NotaConcepto>Aprobado</NotaConcepto>
   </Alumno>
   <Alumno>
-    <Codigo>1</Codigo>
-    <Nombre>dwadwa</Nombre>
-    <Correo>dwadaw@dwad.com</Correo>
-    <Nota1>4</Nota1>
-    <Nota2>4</Nota2>
-    <Nota3>4</Nota3>
-    <Nota4>4</Nota4>
-    <NotaFinal>4</NotaFinal>
-    <NotaConcepto>Aprobado</NotaConcepto>
-  </Alumno>
-  <Alumno>
-    <Codigo>1</Codigo>
+    <Codigo>50</Codigo>
     <Nombre>dwadwa</Nombre>
     <Correo>dwadaw@dwad.com</Correo>
     <Nota1>4</Nota1>

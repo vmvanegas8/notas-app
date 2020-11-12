@@ -28,15 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Trash));
             this.label9 = new System.Windows.Forms.Label();
             this.dgvAlumnosBorrados = new System.Windows.Forms.DataGridView();
             this.menuiconos = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.tbsRecuperarAlumno = new System.Windows.Forms.ToolStripButton();
             this.txtCode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.tbsNuevoCodigo = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnosBorrados)).BeginInit();
             this.menuiconos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -65,7 +69,8 @@
             // 
             this.menuiconos.BackColor = System.Drawing.Color.White;
             this.menuiconos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
+            this.tbsRecuperarAlumno,
+            this.tbsNuevoCodigo});
             this.menuiconos.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuiconos.Location = new System.Drawing.Point(0, 0);
             this.menuiconos.Name = "menuiconos";
@@ -75,19 +80,19 @@
             this.menuiconos.TabIndex = 21;
             this.menuiconos.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // tbsRecuperarAlumno
             // 
-            this.toolStripButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Margin = new System.Windows.Forms.Padding(0, 1, 35, 1);
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(84, 84);
-            this.toolStripButton1.Text = "<";
-            this.toolStripButton1.ToolTipText = "Recuperar alumno";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.tbsRecuperarAlumno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tbsRecuperarAlumno.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbsRecuperarAlumno.Image = ((System.Drawing.Image)(resources.GetObject("tbsRecuperarAlumno.Image")));
+            this.tbsRecuperarAlumno.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tbsRecuperarAlumno.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbsRecuperarAlumno.Margin = new System.Windows.Forms.Padding(0, 1, 35, 1);
+            this.tbsRecuperarAlumno.Name = "tbsRecuperarAlumno";
+            this.tbsRecuperarAlumno.Size = new System.Drawing.Size(84, 84);
+            this.tbsRecuperarAlumno.Text = "<";
+            this.tbsRecuperarAlumno.ToolTipText = "Recuperar alumno";
+            this.tbsRecuperarAlumno.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // txtCode
             // 
@@ -99,11 +104,30 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(581, 145);
+            this.label1.Location = new System.Drawing.Point(558, 145);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(93, 13);
             this.label1.TabIndex = 28;
-            this.label1.Text = "Código";
+            this.label1.Text = "Buscar por codigo";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // tbsNuevoCodigo
+            // 
+            this.tbsNuevoCodigo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tbsNuevoCodigo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbsNuevoCodigo.Enabled = false;
+            this.tbsNuevoCodigo.Image = ((System.Drawing.Image)(resources.GetObject("tbsNuevoCodigo.Image")));
+            this.tbsNuevoCodigo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tbsNuevoCodigo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbsNuevoCodigo.Margin = new System.Windows.Forms.Padding(0, 1, 35, 1);
+            this.tbsNuevoCodigo.Name = "tbsNuevoCodigo";
+            this.tbsNuevoCodigo.Size = new System.Drawing.Size(84, 84);
+            this.tbsNuevoCodigo.Text = "<";
+            this.tbsNuevoCodigo.ToolTipText = "Cambiar codigo";
+            this.tbsNuevoCodigo.Click += new System.EventHandler(this.tbsNuevoCodigo_Click);
             // 
             // Trash
             // 
@@ -124,6 +148,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnosBorrados)).EndInit();
             this.menuiconos.ResumeLayout(false);
             this.menuiconos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,8 +159,10 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dgvAlumnosBorrados;
         private System.Windows.Forms.ToolStrip menuiconos;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton tbsRecuperarAlumno;
         private System.Windows.Forms.TextBox txtCode;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolStripButton tbsNuevoCodigo;
     }
 }
